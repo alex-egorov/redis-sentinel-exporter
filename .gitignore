@@ -3,7 +3,7 @@
 .idea
 
 # Output
-redis_sentinel_exporter
+redis-sentinel-exporter
 coverage.txt
 bin/
 package/
