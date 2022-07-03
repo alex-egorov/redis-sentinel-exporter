@@ -74,7 +74,7 @@ func main() {
 	http.Handle(*metricPath, promhttp.Handler())
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(`
+		_, err := w.Write([]byte(`
 			<html>
 			<head><title>Redis Sentinel Exporter ` + version.Version + `</title></head>
 			<body>
@@ -83,6 +83,10 @@ func main() {
 			</body>
 			</html>
 		`))
+
+		if err != nil {
+			logrus.WithError(err).Warn("Failed to write data")
+		}
 	})
 
 	logrus.Printf("Providing metrics at %s%s", *listenAddress, *metricPath)
