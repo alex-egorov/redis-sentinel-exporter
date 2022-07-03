@@ -1,3 +1,5 @@
-## 1.7.2 / 2022-03-01
+## 1.8.0 /2022-07-03
 
-- [FEATURE] First upload by temporary maintainer.
+- go 1.17, modules update
+
+
